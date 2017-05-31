@@ -4,10 +4,17 @@
   "private": true,
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "axios": "^0.16.1",
+    "prop-types": "^15.5.8"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.7",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
   },
   "scripts": {
     "start": "react-scripts start",
