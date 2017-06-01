@@ -1,31 +1,44 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-class DriversDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      driverData: null
-    };
-  }
-  componentDidMount() {
-    axios.get(`http://ergast.com/api/f1/2016/drivers/${this.props.match.params.driverId}.json`)
-      .then(response => this.setState({ driverData: response.data.MRData.DriverTable.Drivers[0] }));
-  }
-  componentWillUnmount() {
-    this.setState({ driverData: null });
-  }
-  render() {
-    return (
-      <div>
+
+const DriverDetail = ({ driverData, history }) => {
+  // const picUrl = `../img/drivers/${driverData.driverId}.png`;
+  const avatar = require(`../img/drivers/${driverData.driverId}.png`);
+  const name = `${driverData.Drivers[0].givenName} ${driverData.Drivers[0].familyName}`;
+
+  const a = localStorage.getItem('history') === null ? [] : JSON.parse(localStorage.getItem('history'));
+  const b = [[avatar, name], ...a.slice(0, 4)];
+  localStorage.setItem('history', JSON.stringify(b));
+
+  return (
+    <div className="DriverDetail">
+      <img src={avatar} alt={name} />
+      <p>{name}</p>
+      <hr/>
+      <p>Nationality: {driverData.Drivers[0].nationality}</p>
+      <p>Date Of Birth: {driverData.Drivers[0].dateOfBirth}</p>
+      <p>Starting Number: {driverData.Drivers[0].permanentNumber}</p>
+      <p>Biography: {driverData.Drivers[0].url}</p>
+      <ul>
         {
-          !this.state.driverData
-            ? <p>Loading...</p>
-            : <p>{this.props.match.params.driverId}</p>
+          a.map((item, i) => (
+            <li key={i}>
+              <img src={item[0]} alt=""/>
+              <span>{item[1]}</span>
+            </li>
+          ))
         }
-      </div>
-    );
-  }
-}
+      </ul>
+    </div>
+  );
+};
 
-export default DriversDetails;
+DriverDetail.propTypes = {
+  driverData: PropTypes.shape({
+    driverId: PropTypes.string
+  })
+};
+
+export default DriverDetail;

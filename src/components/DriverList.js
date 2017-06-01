@@ -22,7 +22,7 @@ const DriverList = ({ driverData }) => (
           <hr />
           <p className="nationality">
             <span>Nationality:</span>
-            <img className="flag" src={nationality} alt={driver.Driver.nationality}/>
+            <img className="flag" src={nationality} alt={driver.Driver.nationality} />
           </p>
           <p>Position:{driver.position}</p>
           <p>Points:{driver.points}</p>

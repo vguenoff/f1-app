@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Nav from './Nav';
 import Drivers from './Drivers';
-import DriverDetail from './DriverDetail';
+import Driver from './Driver';
 import Constructors from './Constructors';
 import Circuits from './Circuits';
 
@@ -13,7 +13,7 @@ const App = () => (
       <Nav />
       <div className="content">
         <Route exact path="/" component={Drivers} />
-        <Route path="/driverDetail/:driverId" component={DriverDetail} />
+        <Route exact path="/driverDetail/:driverId" component={Driver} />
         <Route path="/constructors" component={Constructors} />
         <Route path="/circuits" component={Circuits} />
       </div>
