@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import api from '../utils/api';
 
+import DriverList from './DriverList';
+
 class Drivers extends Component {
   constructor(props) {
     super(props);
@@ -12,22 +14,19 @@ class Drivers extends Component {
     api.fetchData('Drivers')
       .then(driverData => this.setState({ driverData }));
   }
+  componentWillUnmount() {
+    this.setState({ driverData: null });
+  }
   render() {
-    const driverData = this.state.driverData;
     return (
-      <div className="Drivers">
+      <div>
         {
-          !driverData
+          !this.state.driverData
           ? <p>Loading...</p>
-          : (
-            <ul>
-              {driverData.map(driver => (
-                <li
-                  key={driver.Driver.driverId}
-                >{driver.Driver.driverId}</li>
-              ))}
-            </ul>
-          )
+          : <DriverList
+            className="DriverList"
+            driverData={this.state.driverData}
+          />
         }
       </div>
     );

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import api from '../utils/api';
 
 class Circuits extends Component {
@@ -12,21 +14,58 @@ class Circuits extends Component {
     api.fetchData('Circuits')
       .then(circuitData => this.setState({ circuitData }));
   }
+  componentWillUnmount() {
+    this.setState({ circuitData: null });
+  }
   render() {
     const circuitData = this.state.circuitData;
+
+
     return (
-      <div className="Circuits">
+      <div>
         {
           !circuitData
-          ? <p>Loading...</p>
-          : (
-            <ul>
-              {circuitData.map(circuit => (
-                <li
-                  key={circuit.circuitId}
-                >{circuit.circuitId}</li>
-              ))}
-            </ul>
+            ? <p>Loading...</p>
+            : (
+              <ul className="Circuits">
+                {
+                  circuitData.map((circuit) => {
+                    const circuitsPic = require(`../img/circuits/${circuit.circuitId}.png`);
+                    const linkPic = require('../img/link.png');
+
+                    return (
+                      <li
+                        key={circuit.circuitId}
+                      >
+                        <div>
+                          <img src={circuitsPic} alt={circuit.circuitName} />
+                        </div>
+                        <p>
+                          <span>
+                            Name: {circuit.circuitName}
+                          </span>
+                          <Link to={circuit.url} target="_blank">
+                            <img src={linkPic} alt="Wiki Link" />
+                          </Link>
+                        </p>
+                        <p>
+                          Locality: {`${circuit.Location.country}, ${circuit.Location.locality}`}
+                        </p>
+
+                        {/*<p>*/}
+                        {/*<span>*/}
+                        {/*Constructor: {constructor.name}*/}
+                        {/*</span>*/}
+                        {/*<Link to={constructor.url} target="_blank">*/}
+                        {/*<img src={linkPic} alt="Wiki Link" />*/}
+                        {/*</Link>*/}
+                        {/*</p>*/}
+                        {/*<p>Locality: {circuit.Location.country}</p>*/}
+                      </li>
+                    );
+                  })
+                }
+              </ul>
           )
         }
       </div>

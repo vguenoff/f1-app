@@ -10,7 +10,7 @@ const App = () => (
   <BrowserRouter>
     <div className="App">
       <Nav />
-      <div className="Sections">
+      <div className="content">
         <Route exact path="/" component={Drivers} />
         <Route path="/constructors" component={Constructors} />
         <Route path="/circuits" component={Circuits} />
