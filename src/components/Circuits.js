@@ -19,8 +19,6 @@ class Circuits extends Component {
   }
   render() {
     const circuitData = this.state.circuitData;
-
-
     return (
       <div>
         {
@@ -51,16 +49,6 @@ class Circuits extends Component {
                         <p>
                           Locality: {`${circuit.Location.country}, ${circuit.Location.locality}`}
                         </p>
-
-                        {/*<p>*/}
-                        {/*<span>*/}
-                        {/*Constructor: {constructor.name}*/}
-                        {/*</span>*/}
-                        {/*<Link to={constructor.url} target="_blank">*/}
-                        {/*<img src={linkPic} alt="Wiki Link" />*/}
-                        {/*</Link>*/}
-                        {/*</p>*/}
-                        {/*<p>Locality: {circuit.Location.country}</p>*/}
                       </li>
                     );
                   })

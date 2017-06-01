@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 const DriverList = ({ driverData }) => (
@@ -12,14 +13,16 @@ const DriverList = ({ driverData }) => (
         <li
           key={driver.Driver.driverId}
         >
-          <h3>
-            <img className="avatar" src={avatar} alt={name} />
-            <span>{name}</span>
-          </h3>
+          <Link to={`/driverDetail/${driver.Driver.driverId}`}>
+            <h3>
+              <img className="avatar" src={avatar} alt={name} />
+              <span>{name}</span>
+            </h3>
+          </Link>
           <hr />
           <p className="nationality">
             <span>Nationality:</span>
-            <img className="flag" src={nationality} alt={driver.Driver.nationality} />
+            <img className="flag" src={nationality} alt={driver.Driver.nationality}/>
           </p>
           <p>Position:{driver.position}</p>
           <p>Points:{driver.points}</p>
