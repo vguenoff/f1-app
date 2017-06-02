@@ -6,32 +6,32 @@ body {
 .App .App-header {
   background: #363636; }
   .App .App-header h1 {
-    color: #fff;
+    font-size: 16px;
     display: inline-block;
-    font-size: 1em;
     margin: 0;
-    padding: 1em; }
+    padding: 1em;
+    color: #fff; }
 .App .Nav {
   float: right;
-  margin-right: 1em;
-  list-style: none;
-  padding: 0; }
+  margin-right: 20px;
+  padding: 0;
+  list-style: none; }
   .App .Nav li {
     display: inline-block;
-    cursor: pointer;
     float: left;
-    padding: 0 1em; }
+    padding: 0 20px;
+    cursor: pointer; }
     .App .Nav li a {
       height: 100%;
+      padding-top: 10px;
       text-decoration: none;
-      color: #fff;
-      padding-top: 10px; }
+      color: #fff; }
     .App .Nav li .active {
       border-top: 4px solid #fff; }
 .App .App-header::after {
-  content: '';
   display: block;
-  clear: both; }
+  clear: both;
+  content: ''; }
 .App .content {
   max-width: 1170px;
   margin: 0 auto;
@@ -39,12 +39,12 @@ body {
   .App .content li {
     display: inline-block;
     box-sizing: border-box;
-    text-align: left;
-    background: white;
+    width: 350px;
     margin: 15px;
-    width: 340px;
     list-style: none;
-    color: #7f7f7f; }
+    text-align: left;
+    color: #7f7f7f;
+    background: white; }
   .App .content .DriverList {
     padding: 0; }
     .App .content .DriverList li {
@@ -56,43 +56,126 @@ body {
       .App .content .DriverList li a {
         text-decoration: none; }
         .App .content .DriverList li a h3 {
-          margin: 0;
           font-weight: normal;
+          margin: 0;
           color: #46b7ff; }
           .App .content .DriverList li a h3 span {
-            vertical-align: top;
             line-height: 200%;
-            padding: 10px; }
+            padding: 10px;
+            vertical-align: top; }
       .App .content .DriverList li .nationality img {
         margin-left: 5px; }
       .App .content .DriverList li .nationality span {
-        vertical-align: top;
-        line-height: 200%; }
+        line-height: 200%;
+        vertical-align: top; }
+  .App .content .DriverDetail,
+  .App .content .history {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 30px 15px;
+    vertical-align: top; }
+    .App .content .DriverDetail img,
+    .App .content .history img {
+      border-radius: 50%; }
+    .App .content .DriverDetail h3,
+    .App .content .DriverDetail p,
+    .App .content .history h3,
+    .App .content .history p {
+      color: #7f7f7f; }
+    .App .content .DriverDetail h4,
+    .App .content .history h4 {
+      color: #46b7ff; }
+    .App .content .DriverDetail h3,
+    .App .content .DriverDetail h4,
+    .App .content .history h3,
+    .App .content .history h4 {
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: top; }
   .App .content .DriverDetail {
-    max-width: 750px;
-    background: #fff;
-    margin: 30px;
+    width: 720px;
+    padding: 10px;
     text-align: left;
-    padding: 10px; }
-  .App .content .Constructors, .App .content .Circuits {
+    background: #fff; }
+    .App .content .DriverDetail a {
+      text-decoration: none;
+      word-wrap: break-word;
+      color: #46b7ff;
+      overflow-wrap: break-word; }
+  .App .content .history {
+    width: 350px;
+    background: #fff; }
+    .App .content .history img {
+      width: 40px;
+      height: 40px; }
+    .App .content .history p {
+      margin: 5px;
+      padding: 10px;
+      text-align: left; }
+    .App .content .history ul {
+      margin: 0;
+      padding: 0;
+      text-align: left; }
+      .App .content .history ul li {
+        margin: 0;
+        padding: 0 10px; }
+        .App .content .history ul li h4 {
+          margin-top: 15px; }
+  .App .content .Constructors,
+  .App .content .Circuits {
     padding: 0; }
-    .App .content .Constructors li, .App .content .Circuits li {
+    .App .content .Constructors li,
+    .App .content .Circuits li {
       padding: 5px; }
-      .App .content .Constructors li div, .App .content .Circuits li div {
+      .App .content .Constructors li div,
+      .App .content .Circuits li div {
         overflow: hidden;
-        width: 350px;
+        width: 340px;
         height: 231px; }
-        .App .content .Constructors li div img, .App .content .Circuits li div img {
+        .App .content .Constructors li div img,
+        .App .content .Circuits li div img {
           position: relative;
-          transform: translateX(-50%);
           left: 50%;
-          height: 100%; }
-      .App .content .Constructors li a, .App .content .Circuits li a {
+          height: 100%;
+          transform: translateX(-50%); }
+      .App .content .Constructors li a,
+      .App .content .Circuits li a {
         float: right; }
   .App .content .Circuits li div {
     height: auto; }
     .App .content .Circuits li div img {
       width: 100%;
       height: auto; }
+@media only screen and (max-width: 500px) {
+  .App .Nav {
+    float: none;
+    margin: 0; }
+    .App .Nav li {
+      padding: 0 16px 10px 16px; }
+      .App .Nav li .active {
+        color: #46b7ff;
+        border: none; }
+  .App .content li {
+    margin: 15px 0 15px 0; } }
+@media only screen and (max-width: 1140px) {
+  .App .content .DriverDetail {
+    width: 520px; }
+  .App .content .history {
+    width: 250px; }
+    .App .content .history ul li {
+      width: inherit; } }
+@media only screen and (max-width: 846px) {
+  .App .content .DriverDetail,
+  .App .content .history {
+    width: 90%;
+    margin-bottom: 5px; }
+  .App .content .history {
+    margin-top: 5px;
+    padding-bottom: 10px; }
+    .App .content .history ul li {
+      width: inherit;
+      padding-right: 0; }
+      .App .content .history ul li span {
+        display: none; } }
 
 /*# sourceMappingURL=index.css.map */

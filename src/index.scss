@@ -1,45 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+// colors
+$white: #fff;
+$grey: #7f7f7f;
+$blue: #46b7ff;
 
 body {
   font-family: 'Open Sans', sans-serif;
   background: #e1e1e1;
 }
+
 .App {
   .App-header {
     background: #363636;
     h1 {
-      color: #fff;
+      font-size: 16px;
       display: inline-block;
-      font-size: 1em;
       margin: 0;
       padding: 1em;
+      color: $white;
     }
   }
   .Nav {
     float: right;
-    margin-right: 1em;
-    list-style: none;
+    margin-right: 20px;
     padding: 0;
+    list-style: none;
     li {
       display: inline-block;
-      cursor: pointer;
       float: left;
-      padding: 0 1em;
+      padding: 0 20px;
+      cursor: pointer;
       a {
         height: 100%;
-        text-decoration: none;
-        color: #fff;
         padding-top: 10px;
+        text-decoration: none;
+        color: $white;
       }
       .active {
-        border-top: 4px solid #fff;
+        border-top: 4px solid $white;
       }
     }
   }
   .App-header::after {
-    content: '';
     display: block;
     clear: both;
+    content: '';
   }
   .content {
     max-width: 1170px;
@@ -48,12 +53,12 @@ body {
     li {
       display: inline-block;
       box-sizing: border-box;
-      text-align: left;
-      background: white;
+      width: 350px;
       margin: 15px;
-      width: 340px;
       list-style: none;
-      color: #7f7f7f;
+      text-align: left;
+      color: $grey;
+      background: white;
     }
     .DriverList {
       padding: 0;
@@ -67,13 +72,13 @@ body {
         a {
           text-decoration: none;
           h3 {
-            margin: 0;
             font-weight: normal;
-            color: #46b7ff;
+            margin: 0;
+            color: $blue;
             span {
-              vertical-align: top;
               line-height: 200%;
               padding: 10px;
+              vertical-align: top;
             }
           }
         }
@@ -82,32 +87,86 @@ body {
             margin-left: 5px;
           }
           span {
-            vertical-align: top;
             line-height: 200%;
+            vertical-align: top;
+          }
+        }
+        }
+    }
+    .DriverDetail,
+    .history {
+      display: inline-block;
+      box-sizing: border-box;
+      margin: 30px 15px;
+      vertical-align: top;
+      img {
+        border-radius: 50%;
+      }
+      h3,
+      p {
+        color: $grey;
+      }
+      h4 {
+        color: $blue;
+      }
+      h3,
+      h4 {
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: top;
+      }
+    }
+    .DriverDetail {
+      width: 720px;
+      padding: 10px;
+      text-align: left;
+      background: $white;
+      a {
+        text-decoration: none;
+        word-wrap: break-word;
+        color: $blue;
+        overflow-wrap: break-word;
+      }
+    }
+    .history {
+      width: 350px;
+      background: $white;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      p {
+        margin: 5px;
+        padding: 10px;
+        text-align: left;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        li {
+          margin: 0;
+          padding: 0 10px;
+          h4 {
+            margin-top: 15px;
           }
         }
       }
     }
-    .DriverDetail {
-      max-width: 750px;
-      background: #fff;
-      margin: 30px;
-      text-align: left;
-      padding: 10px;
-    }
-    .Constructors, .Circuits {
+    .Constructors,
+    .Circuits {
       padding: 0;
       li {
         padding: 5px;
         div {
           overflow: hidden;
-          width: 350px;
+          width: 340px;
           height: 231px;
           img {
             position: relative;
-            transform: translateX(-50%);
             left: 50%;
             height: 100%;
+            transform: translateX(-50%);
           }
         }
         a {
@@ -122,6 +181,61 @@ body {
           img {
             width: 100%;
             height: auto;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .Nav {
+      float: none;
+      margin: 0;
+      li {
+        padding: 0 16px 10px 16px;
+        .active {
+          color: $blue;
+          border: none;
+        }
+      }
+    }
+    .content {
+      li {
+        margin: 15px 0 15px 0;
+      }
+    }
+  }
+  @media only screen and (max-width: 1140px) {
+    .content {
+      .DriverDetail {
+        width: 520px;
+      }
+      .history {
+        width: 250px;
+        ul {
+          li {
+            width: inherit;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 846px) {
+    .content {
+      .DriverDetail,
+      .history {
+        width: 90%;
+        margin-bottom: 5px;
+      }
+      .history {
+        margin-top: 5px;
+        padding-bottom: 10px;
+          ul {
+            li {
+              width: inherit;
+              padding-right: 0;
+            span {
+              display: none;
+            }
           }
         }
       }
