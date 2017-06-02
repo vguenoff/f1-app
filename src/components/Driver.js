@@ -20,7 +20,7 @@ class Driver extends Component {
     }
   }
   componentDidMount() {
-    axios.get(`http://ergast.com/api/f1/2016/drivers/${this.props.match.params.driverId}.json`)
+    axios.get(`https://ergast.com/api/f1/2016/drivers/${this.props.match.params.driverId}.json`)
       .then(response => this.setState({ driverData: response.data.MRData.DriverTable }));
   }
   componentWillUnmount() {

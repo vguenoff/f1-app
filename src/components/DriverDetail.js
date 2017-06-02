@@ -16,7 +16,7 @@ const DriverDetail = ({ driverData, history }) => {
     <div className="DriverDetail">
       <img src={avatar} alt={name} />
       <p>{name}</p>
-      <hr/>
+      <hr />
       <p>Nationality: {driverData.Drivers[0].nationality}</p>
       <p>Date Of Birth: {driverData.Drivers[0].dateOfBirth}</p>
       <p>Starting Number: {driverData.Drivers[0].permanentNumber}</p>
