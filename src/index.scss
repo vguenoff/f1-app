@@ -1,30 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background: #e1e1e1;
 }
 .App {
   .App-header {
     background: #363636;
-    color: #fff;
     h1 {
+      color: #fff;
       display: inline-block;
       font-size: 1em;
       margin: 0;
       padding: 1em;
     }
-    .SelectSection {
-      float: right;
-      margin-right: 1em;
-      list-style: none;
-      padding: 0;
-      li {
-        display: inline-block;
-        cursor: pointer;
-        float: left;
-        padding: 0 1em;
+  }
+  .Nav {
+    float: right;
+    margin-right: 1em;
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      cursor: pointer;
+      float: left;
+      padding: 0 1em;
+      a {
+        height: 100%;
+        text-decoration: none;
+        color: #fff;
+        padding-top: 10px;
+      }
+      .active {
+        border-top: 4px solid #fff;
       }
     }
   }
-  .Sections {
+  .App-header::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .content {
+    max-width: 1170px;
+    margin: 0 auto;
+    text-align: center;
+    li {
+      display: inline-block;
+      box-sizing: border-box;
+      text-align: left;
+      background: white;
+      margin: 15px;
+      width: 360px;
+      list-style: none;
+      color: #7f7f7f;
+    }
+    .DriverList {
+      padding: 0;
+      li {
+        padding: 15px 15px 5px 15px;
+        .avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+        a {
+          text-decoration: none;
+          h3 {
+            margin: 0;
+            font-weight: normal;
+            color: #46b7ff;
+            span {
+              vertical-align: top;
+              line-height: 200%;
+              padding: 10px;
+            }
+          }
+        }
+        .nationality {
+          img {
+            margin-left: 5px;
+          }
+          span {
+            vertical-align: top;
+            line-height: 200%;
+          }
+        }
+      }
+    }
+    .DriverDetail {
+      max-width: 750px;
+      background: #fff;
+      margin: 30px;
+      text-align: left;
+      padding: 10px;
+    }
+    .Constructors, .Circuits {
+      padding: 0;
+      li {
+        padding: 5px;
+        div {
+          overflow: hidden;
+          width: 350px;
+          height: 231px;
+          img {
+            position: relative;
+            transform: translateX(-50%);
+            left: 50%;
+            height: 100%;
+          }
+        }
+        a {
+          float: right;
+        }
+      }
+    }
+    .Circuits {
+      li {
+        div {
+          height: auto;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
   }
 }
